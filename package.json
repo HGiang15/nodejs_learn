@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HGiang15/nodejs_learn.git"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "giang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HGiang15/nodejs_learn/issues"
+  },
+  "homepage": "https://github.com/HGiang15/nodejs_learn#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
