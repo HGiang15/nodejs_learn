@@ -29,11 +29,11 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
-  ,
+  },
   "dependencies": {
     "express": "^4.21.2",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.9.2"
   },
   "devDependencies": {
     "husky": "^9.1.7",

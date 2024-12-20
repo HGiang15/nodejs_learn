@@ -1,0 +1,2 @@
+Khi đặt tên collection ( bảng dữ liệu ) trong model, thư viện Mongoose sẽ mặc định tự thêm s vào tên dẫn đến việc nếu tạo collection trong mongodb ko có đuôi s - Mongoose sẽ tự tạo ra 1 collection rỗng với đuôi s dẫn đến ko có dữ liệu trả về khi gọi từ DB
+Để bắt trend sự kiện này thì chỉ cần thêm đuôi s vào sau tên Collection khi tạo trong MongoDB , điều này a Sơn đã nói ở phút 23
