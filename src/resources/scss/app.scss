@@ -1,1 +1,19 @@
 @import 'variables';
+
+// Homepage styles
+.card-course-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  height: 100%;
+}
+
+.card-course-item .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-course-item .card-text {
+  flex-grow: 1;
+}
