@@ -24,12 +24,25 @@ app.use(morgan('combined')) // HTTP logger
 
 // Template engine
 // app.engine('handlebars', handlebars());
-app.engine(
-  'hbs',
-  handlebars.engine({
-    extname: '.hbs',
-  }),
-)
+// app.engine(
+//   'hbs',
+//   handlebars.engine({
+//     extname: '.hbs',
+//   }),
+// )
+
+// Định nghĩa helper eq
+const hbs = handlebars.create({
+  extname: '.hbs',
+  helpers: {
+    eq: function(a, b) {
+      return a === b;
+    },
+  },
+});
+
+// Cấu hình express với Handlebars
+app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
 

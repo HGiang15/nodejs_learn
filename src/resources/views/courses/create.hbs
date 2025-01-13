@@ -1,41 +1,53 @@
-<div class='mt-4'>
-  <h3 class='create-heading'>Thêm khóa học mới</h3>
+<div class="mt-4">
+  <h3 class="create-heading">Thêm khóa học mới</h3>
 
-  <form class='form-create' method='POST' action='/courses/store'>
-    {{! name }}
-    <div class='form-group'>
-      <label for='name'>Tên khóa học</label>
-      <input type='text' name='name' id='name' class='form-control' />
+  <form class="form-create" method="POST" action="/courses/store">
+    
+    <!-- Tên khóa học -->
+    <div class="form-group">
+      <label for="name">Tên khóa học</label>
+      <input type="text" name="name" id="name" class="form-control" value="{{oldData.name}}" />
+
+      {{#if errors.name}}
+        <div class="text-danger">{{errors.name.msg}}</div>
+      {{/if}}
     </div>
 
-    {{! Desc }}
-    <div class='form-group'>
-      <label for='description'>Mô tả</label>
-      <textarea
-        type='text'
-        name='description'
-        id='description'
-        class='form-control'
-      ></textarea>
+    <!-- Mô tả -->
+    <div class="form-group">
+      <label for="description">Mô tả</label>
+      <textarea name="description" id="description" class="form-control">{{oldData.description}}</textarea>
+
+      {{#if errors.description}}
+        <div class="text-danger">{{errors.description.msg}}</div>
+      {{/if}}
     </div>
 
-    {{! VideoId }}
-    <div class='form-group'>
-      <label for='videoId'>VideoID</label>
-      <input type='text' name='videoId' id='videoId' class='form-control' />
+    <!-- VideoID -->
+    <div class="form-group">
+      <label for="videoId">VideoID</label>
+      <input type="text" name="videoId" id="videoId" class="form-control" value="{{oldData.videoId}}" />
+
+      {{#if errors.videoId}}
+        <div class="text-danger">{{errors.videoId.msg}}</div>
+      {{/if}}
     </div>
 
-    {{! level }}
-    <div class='form-group'>
-      <label for='level'>Trình độ</label>
-      <select name='level' id='level' class='form-control'>
-        <option value='' selected disabled>Chọn trình độ</option>
-        <option value='Cơ bản'>Trình độ cơ bản</option>
-        <option value='Trung bình'>Trình độ trung bình</option>
-        <option value='Nâng cao'>Trình độ nâng cao</option>
+    <!-- Trình độ -->
+    <div class="form-group">
+      <label for="level">Trình độ</label>
+      <select name="level" id="level" class="form-control">
+        <option value="" selected disabled>Chọn trình độ</option>
+        <option value="Cơ bản" {{#if (eq oldData.level 'Cơ bản')}}selected{{/if}}>Trình độ cơ bản</option>
+        <option value="Trung bình" {{#if (eq oldData.level 'Trung bình')}}selected{{/if}}>Trình độ trung bình</option>
+        <option value="Nâng cao" {{#if (eq oldData.level 'Nâng cao')}}selected{{/if}}>Trình độ nâng cao</option>
       </select>
+
+      {{#if errors.level}}
+        <div class="text-danger">{{errors.level.msg}}</div>
+      {{/if}}
     </div>
 
-    <button type='submit' class='btn btn-success'>Thêm</button>
+    <button type="submit" class="btn btn-success">Thêm</button>
   </form>
 </div>
