@@ -1,18 +1,34 @@
-<div class='mt-4'>
-  <div class='row'>
+<div class='container mt-4'>
+  <!-- Tiêu đề chính -->
+  <h3 class='text-center mb-2'>Khám phá các khóa học nổi bật</h3>
 
+  {{> search-bar }}
+
+  {{> filter-bar }}
+
+  <!-- Danh sách khóa học -->
+  <div class='row'>
     {{#each courses}}
-    <div class='col-sm-6 col-lg-4'>
-      <div class='card card-course-item'>
-        <img src='{{ this.image }}' class='card-img-top' alt='...' />
-        <div class='card-body'>
-          <h5 class='card-title'>{{ this.name }}</h5>
-          <p class='card-text'>{{ this.description }}</p>
-          <a href='#' class='btn btn-primary'>Buy course</a>
+      <div class='col-sm-6 col-lg-4'>
+        <div class='card card-course-item'>
+          <a href='/courses/{{this.slug}}'>
+            <img
+              src='{{this.image}}'
+              class='card-img-top'
+              alt='Hình ảnh khóa học'
+            />
+          </a>
+          <div class='card-body'>
+            <a href='/courses/{{this.slug}}'>
+              <h5 class='card-title'>{{this.name}}</h5>
+            </a>
+            <p class='card-text'>{{this.description}}</p>
+            <a href='/courses/{{this.slug}}' class='btn btn-primary'>Mua khóa
+              học</a>
+          </div>
         </div>
       </div>
-    </div>
     {{/each}}
-
   </div>
+
 </div>
