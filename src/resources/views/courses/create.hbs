@@ -1,0 +1,41 @@
+<div class='mt-4'>
+  <h3 class='create-heading'>Thêm khóa học mới</h3>
+
+  <form class='form-create' method='POST' action='/courses/store'>
+    {{! name }}
+    <div class='form-group'>
+      <label for='name'>Tên khóa học</label>
+      <input type='text' name='name' id='name' class='form-control' />
+    </div>
+
+    {{! Desc }}
+    <div class='form-group'>
+      <label for='description'>Mô tả</label>
+      <textarea
+        type='text'
+        name='description'
+        id='description'
+        class='form-control'
+      ></textarea>
+    </div>
+
+    {{! VideoId }}
+    <div class='form-group'>
+      <label for='videoId'>VideoID</label>
+      <input type='text' name='videoId' id='videoId' class='form-control' />
+    </div>
+
+    {{! level }}
+    <div class='form-group'>
+      <label for='level'>Trình độ</label>
+      <select name='level' id='level' class='form-control'>
+        <option value='' selected disabled>Chọn trình độ</option>
+        <option value='Cơ bản'>Trình độ cơ bản</option>
+        <option value='Trung bình'>Trình độ trung bình</option>
+        <option value='Nâng cao'>Trình độ nâng cao</option>
+      </select>
+    </div>
+
+    <button type='submit' class='btn btn-success'>Thêm</button>
+  </form>
+</div>

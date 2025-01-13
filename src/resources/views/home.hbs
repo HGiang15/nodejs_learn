@@ -1,24 +1,24 @@
 <div class='container mt-4'>
   <!-- Tiêu đề chính -->
-  <h3 class='text-center mb-2'>Khám phá các khóa học nổi bật</h3>
+  <h3 class='home-heading text-center mb-2'>Khám phá các khóa học nổi bật</h3>
 
   {{> search-bar }}
 
   {{> filter-bar }}
 
   <!-- Danh sách khóa học -->
-  <div class='row'>
+  <div class='row card-list'>
     {{#each courses}}
       <div class='col-sm-6 col-lg-4'>
-        <div class='card card-course-item'>
+        <div class='home-card card card-course-item'>
           <a href='/courses/{{this.slug}}'>
             <img
               src='{{this.image}}'
-              class='card-img-top'
+              class='home-img card-img-top'
               alt='Hình ảnh khóa học'
             />
           </a>
-          <div class='card-body'>
+          <div class='home-body card-body'>
             <a href='/courses/{{this.slug}}'>
               <h5 class='card-title'>{{this.name}}</h5>
             </a>
