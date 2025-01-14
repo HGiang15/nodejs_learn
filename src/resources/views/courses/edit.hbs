@@ -1,0 +1,53 @@
+<div class="mt-4">
+  <h3 class="create-heading">Sửa khóa học</h3>
+
+  <form class="form-create" method="POST" action="/courses/{{ course._id }}?_method=PUT">
+    
+    <!-- Tên khóa học -->
+    <div class="form-group mt-4">
+      <label for="name">Tên khóa học</label>
+      <input type="text" name="name" value="{{ course.name }}" id="name" class="form-control" />
+
+      {{#if errors.name}}
+        <div class="text-danger">{{errors.name.msg}}</div>
+      {{/if}}
+    </div>
+
+    <!-- Mô tả -->
+    <div class="form-group">
+      <label for="description">Mô tả</label>
+      <textarea name="description" id="description" class="form-control">{{course.description}}</textarea>
+
+      {{#if errors.description}}
+        <div class="text-danger">{{errors.description.msg}}</div>
+      {{/if}}
+    </div>
+
+    <!-- VideoID -->
+    <div class="form-group">
+      <label for="videoId">VideoID</label>
+      <input type="text" name="videoId" value="{{ course.videoId }}" id="videoId" class="form-control" />
+
+      {{#if errors.videoId}}
+        <div class="text-danger">{{errors.videoId.msg}}</div>
+      {{/if}}
+    </div>
+
+    <!-- Trình độ -->
+    <div class="form-group">
+      <label for="level">Trình độ</label>
+      <select name="level" id="level" class="form-control">
+    <option value="" disabled>Chọn trình độ</option>
+    <option value="Cơ bản" {{#if (eq course.level "Cơ bản")}}selected{{/if}}>Trình độ cơ bản</option>
+    <option value="Trung bình" {{#if (eq course.level "Trung bình")}}selected{{/if}}>Trình độ trung bình</option>
+    <option value="Nâng cao" {{#if (eq course.level "Nâng cao")}}selected{{/if}}>Trình độ nâng cao</option>
+  </select>
+
+      {{#if errors.level}}
+        <div class="text-danger">{{errors.level.msg}}</div>
+      {{/if}}
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu lại</button>
+  </form>
+</div>

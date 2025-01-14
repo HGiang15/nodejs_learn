@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const methodOverride = require('method-override')
 const handlebars = require('express-handlebars')
 // const { engine } = require('express-handlebars');
 const route = require('./routes')
@@ -20,6 +21,8 @@ app.use(
 )
 app.use(express.json())
 
+app.use(methodOverride('_method'))
+
 app.use(morgan('combined')) // HTTP logger
 
 // Template engine
@@ -35,14 +38,15 @@ app.use(morgan('combined')) // HTTP logger
 const hbs = handlebars.create({
   extname: '.hbs',
   helpers: {
-    eq: function(a, b) {
-      return a === b;
+    eq: function (a, b) {
+      return a === b
     },
+    sum: (a, b) => a + b
   },
-});
+})
 
 // Cấu hình express với Handlebars
-app.engine('hbs', hbs.engine);
+app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
 
