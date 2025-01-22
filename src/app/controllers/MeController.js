@@ -8,9 +8,20 @@ class MeController {
       .lean()
       .then((courses) => {
         // res.render('me/stored-courses', { courses: multipleMongooseToObject(courses) })
-        res.render('me/stored-courses', { courses })
+        res.render('me/stored-courses', { courses }) 
       })
       .catch(next)
+  }
+
+  // [GET] /me/trash/courses
+  trashCourses(req, res, next) {
+    Course.findWithDeleted({ deleted: true })
+    .lean()
+    .then((courses) => {
+      // res.render('me/stored-courses', { courses: multipleMongooseToObject(courses) })
+      res.render('me/trash-courses', { courses }) 
+    })
+    .catch(next)
   }
 }
 
