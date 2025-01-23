@@ -1,11 +1,26 @@
 @import 'variables';
 
+/* Header */
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.nav-link-user {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
 // Homepage styles
 .card-course-item {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
   height: 100%;
+  border-radius: 8px;
 }
 
 .card-course-item .card-body {
@@ -16,4 +31,23 @@
 
 .card-course-item .card-text {
   flex-grow: 1;
+}
+
+.card-list {
+  row-gap: 20px;
+}
+
+.card-course-item .card-text {
+  display: -webkit-box; /* Hiển thị dưới dạng hộp linh hoạt */
+  -webkit-line-clamp: 2; /* Giới hạn số dòng là 2 */
+  -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
+  overflow: hidden; /* Ẩn nội dung tràn */
+  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu tràn */
+  word-break: break-word; /* Ngắt từ khi cần */
+}
+
+// stored-courses
+.checkbox-select-all-options {
+  width: 180px;
+  margin: 0 16px;
 }
