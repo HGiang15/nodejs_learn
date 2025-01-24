@@ -21,7 +21,7 @@
       <option value="delete">Xóa</option>
     </select>
 
-    <button class="btn btn-primary btn-sm check-all-submit-btn disabled">Thực hiện</button>
+    <button class="btn btn-primary btn-sm check-all-submit-btn" disabled>Thực hiện</button>
 
   </div>
  
@@ -113,7 +113,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     var courseId
     var deleteForm = document.forms['delete-course-form']
-    var containerForm = document.forms['container-form']
+    // var containerForm = document.forms['container-form']
+    var containerForm = $('form[name="container-form"]')
     var btnDeleteCourse = document.getElementById("btn-delete-course");
     var checkboxAll = $('#checkbox-all')
     var courseItemCheckbox = $('input[name="courseIds[]"]')
@@ -146,20 +147,20 @@
     })
 
     // Check all submit btn clicked: Khi btn submit disable (ko co quyen submit) thi ko cho submit va nguoc lai
-    checkAllSubmitBtn.on('submit', function(e) {
-      var isSubmitable = !$(this).hasClass('disabled')
+    /*containerForm.on('submit', function(e) {
+      var isSubmitable = !checkAllSubmitBtn.hasClass('disabled')
       if (!isSubmitable) {
         e.preventDefault()
       }
-    })
+    }) */
 
     // Re-render check all submit btn: An checkbox thi btn remove class disabled va nguoc lai
     function renderCheckAllSubmitBtn() {
       var checkedCount = $('input[name="courseIds[]"]:checked').length
       if (checkedCount > 0) {
-        checkAllSubmitBtn.removeClass('disabled')
+        checkAllSubmitBtn.removeAttr('disabled', false)
       } else {
-        checkAllSubmitBtn.addClass('disabled')
+        checkAllSubmitBtn.attr('disabled', true)
       }
     }
     

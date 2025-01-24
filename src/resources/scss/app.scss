@@ -20,16 +20,13 @@
   flex-direction: column;
   margin-top: 16px;
   height: 100%;
+  max-width: 300px;
   border-radius: 8px;
 }
 
 .card-course-item .card-body {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-course-item .card-text {
   flex-grow: 1;
 }
 
