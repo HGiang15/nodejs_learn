@@ -40,34 +40,7 @@ app.use(morgan('combined')) // HTTP logger
 // Định nghĩa helper eq
 const hbs = handlebars.create({
   extname: '.hbs',
-  helpers: {
-    eq: function (a, b) {
-      return a === b
-    },
-    sum: (a, b) => a + b,
-    sortable: (field, sort) => {
-      const sortType = field === sort.column ? sort.type : 'default'
-
-      const icons = {
-        default: 'fa-solid fa-arrow-up-long',
-        asc: 'fa-solid fa-arrow-up-1-9',
-        desc: 'fa-solid fa-arrow-up-9-1',
-      }
-
-      const types = {
-        default: 'desc',
-        asc: 'desc',
-        desc: 'asc',
-      }
-
-      const icon = icons[sortType]
-      const type = types[sortType]
-
-      return `<a href="?_sort&column=${field}&type=${type}">
-                <i class="${icon}"></i>
-              </a>`
-    }
-  },
+  helpers: require('./helpers/handlebars')
 })
 
 // Cấu hình express với Handlebars

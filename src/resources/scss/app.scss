@@ -44,7 +44,41 @@
 }
 
 // stored-courses
+.stored-courses {
+  padding: 1.5rem;
+  background-color: #f8f9fa; 
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+.stored-courses-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #343a40; 
+  margin-bottom: 0.5rem;
+}
+
+.stored-courses-wrap {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6; 
+}
+
+.stored-course-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
 .checkbox-select-all-options {
   width: 180px;
   margin: 0 16px;
+}
+
+
+// table
+.stored-course-img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }

@@ -32,9 +32,10 @@
         <th scope='col'>Chọn</th>
         <th scope='col'>#</th>
         <th scope='col'>
-          Tên khóa học 
+          Khóa học 
           {{{sortable 'name' _sort}}}
         </th>
+
         <th scope='col'>
           Trình độ
           {{{sortable 'level' _sort}}}  
@@ -55,7 +56,15 @@
             </div>
           </td>
           <th scope='row'>{{sum @index 1}}</th>
-          <td>{{this.name}}</td>
+          <td class="stored-course-wrap">
+            <img
+              src='{{this.image}}'
+              class='stored-course-img'
+              alt='Hình ảnh khóa học'
+            />
+            {{this.name}}
+          </td>
+
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
           <td>
