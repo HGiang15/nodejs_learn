@@ -21,7 +21,7 @@ class MeController {
   // [GET] /me/trash/courses
   trashCourses(req, res, next) {
     Course.findWithDeleted({ deleted: true })
-    .lean()
+    .lean().sortable(req)
     .then((courses) => {
       // res.render('me/stored-courses', { courses: multipleMongooseToObject(courses) })
       res.render('me/trash-courses', { courses }) 

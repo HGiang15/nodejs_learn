@@ -22,20 +22,20 @@ class CoursesController {
   // [POST] /courses/store
   store(req, res, next) {
     // Kiểm tra lỗi
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.render('courses/create', {
-        errors: errors.mapped(),
-        oldData: req.body,
-      })
-    }
+    // const errors = validationResult(req)
+    // if (!errors.isEmpty()) {
+    //   return res.render('courses/create', {
+    //     errors: errors.mapped(),
+    //     oldData: req.body, 
+    //   })
+    // }
 
     req.body.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`
     const course = new Course(req.body)
     course
       .save()
       .then(() => res.redirect(`/me/stored/courses`))
-      .catch((error) => {})
+      .catch(next)
   }
 
   // [GET] /courses/:id/edit

@@ -9,13 +9,6 @@
   </div>
 
   <div class="mt-4 d-flex align-items-center">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
-      <label class="form-check-label" for="checkbox-all">
-        Chọn tất cả
-      </label>
-    </div>
-
     <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
       <option value="">-- Chọn hành động --</option>
       <option value="delete">Xóa</option>
@@ -24,27 +17,37 @@
     <button class="btn btn-primary btn-sm check-all-submit-btn" disabled>Thực hiện</button>
 
   </div>
- 
 
-  <table class='table mt-4'>
+  <table class='stored-course-table table mt-4'>
     <thead>
       <tr>
-        <th scope='col'>Chọn</th>
-        <th scope='col'>#</th>
-        <th scope='col'>
+        <th class="stored-course-th" scope='col'>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+          </div>
+        </th>
+
+        <th class="stored-course-th" scope='col'>
+          ID
+          {{{sortable '_id' _sort}}}
+        </th>
+
+        <th class="stored-course-th" scope='col'>
           Khóa học 
           {{{sortable 'name' _sort}}}
         </th>
 
-        <th scope='col'>
+        <th class="stored-course-th" scope='col'>
           Trình độ
           {{{sortable 'level' _sort}}}  
         </th>
-        <th scope='col'>
+
+        <th class="stored-course-th" scope='col'>
           Thời gian tạo
           {{{sortable 'createdAt' _sort}}}  
         </th>
-        <th scope='col'>Hành động</th>
+
+        <th class="stored-course-th" scope='col'>Hành động</th>
       </tr>
     </thead>
     <tbody>
@@ -55,18 +58,22 @@
               <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
             </div>
           </td>
-          <th scope='row'>{{sum @index 1}}</th>
-          <td class="stored-course-wrap">
+
+          <td scope='row'>{{this._id}}</td>
+
+          <td scope='row' class="stored-course-wrap">
             <img
               src='{{this.image}}'
               class='stored-course-img'
               alt='Hình ảnh khóa học'
             />
-            {{this.name}}
+            <span class="stored-course-name">{{this.name}}</span>
           </td>
 
           <td>{{this.level}}</td>
+
           <td>{{this.createdAt}}</td>
+
           <td>
             <a href='/courses/{{this._id}}/edit' class='btn btn-warning'>Sửa</a>
             <a
@@ -77,6 +84,7 @@
               data-target='#delete-course-modal'
             >Xóa</a>
           </td>
+
         </tr>
       {{else}}
         <tr>
@@ -85,7 +93,6 @@
             <a href="/courses/create" class="create-course">Đăng khóa học</a>
           </td>
         </tr>
-
       {{/each}}
     </tbody>
   </table>

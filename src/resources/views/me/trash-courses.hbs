@@ -5,12 +5,12 @@
   </div>
 
   <div class="mt-4 d-flex align-items-center">
-    <div class="form-check">
+    {{!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
       <label class="form-check-label" for="checkbox-all">
         Chọn tất cả
       </label>
-    </div>
+    </div> --}}
 
     <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
       <option value="">-- Chọn hành động --</option>
@@ -25,12 +25,33 @@
   <table class='table mt-4'>
     <thead>
       <tr>
-        <th scope='col'>Chọn</th>
-        <th scope='col'>#</th>
-        <th scope='col'>Tên khóa học</th>
-        <th scope='col'>Trình độ</th>
-        <th scope='col'>Thời gian tạo</th>
-        <th scope='col'>Hành động</th>
+        <th class="stored-course-th" scope='col'>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+          </div>
+        </th>
+
+        <th class="stored-course-th" scope='col'>
+          ID
+          {{{sortable '_id' _sort}}}
+        </th>
+
+        <th class="stored-course-th" scope='col'>
+          Khóa học
+          {{{sortable 'name' _sort}}}
+        </th>
+
+        <th class="stored-course-th" scope='col'>
+          Trình độ
+          {{{sortable 'level' _sort}}}  
+        </th>
+
+        <th class="stored-course-th" scope='col'>
+          Thời gian tạo
+          {{{sortable 'createdAt' _sort}}}  
+        </th>
+
+        <th class="stored-course-th" scope='col'>Hành động</th>
       </tr>
     </thead>
     <tbody>
@@ -41,10 +62,15 @@
               <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
             </div>
           </td>
-          <th scope='row'>{{sum @index 1}}</th>
+
+          <td scope='row'>{{this._id}}</td>
+
           <td>{{this.name}}</td>
+
           <td>{{this.level}}</td>
+
           <td>{{this.createdAt}}</td>
+
           <td>
             <a href='' class='btn btn-link btn-restore' data-id="{{ this._id }}">Khôi phục</a>
             <a
@@ -55,6 +81,7 @@
               data-target='#delete-course-modal'
             >Xóa vĩnh viễn</a>
           </td>
+
         </tr>
       {{else}}
         <tr>
